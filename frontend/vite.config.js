@@ -1,11 +1,18 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import path from "path";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import path from 'path';
 
 export default defineConfig({
-    plugins: [react()],
-    build: {
-        outDir: path.resolve(__dirname, "../app/static"),
-        emptyOutDir: true
-    }
+  plugins: [react()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
+  },
+  build: {
+    outDir: '../app/static', // чтобы собрать в папку backend/static
+  },
+  server: {
+    port: 3000,
+  },
 });
